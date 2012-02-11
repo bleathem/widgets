@@ -6,19 +6,10 @@
     <link type="text/css" href="resources/css/ui-lightness/jquery-ui-1.8.17.custom.css" rel="stylesheet"/>
     <script type="text/javascript" src="resources/js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="resources/js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="resources/js/picklist.js"></script>
     <script type="text/javascript">
         $(function () {
-            $(".pickList ol").selectable();
-            var selectables = $(".selectable");
-            var left = selectables.get(0);
-            var right = selectables.get(1);
-            $("button").button();
-            $(".right", ".pickList").click(function () {
-                var elements = $(".ui-selected", left).detach().appendTo(right);
-            });
-            $(".left", ".pickList").click(function () {
-                var elements = $(".ui-selected", right).detach().appendTo(left);
-            });
+            $(".pickList").picklist();
         });
     </script>
     <style type="text/css">
