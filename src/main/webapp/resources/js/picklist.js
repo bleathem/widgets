@@ -8,16 +8,20 @@
                 }, options);
 
             return this.each(function() {
-                $("ol", this).selectable();
-                var selectables = $(".selectable");
-                var left = selectables.get(0);
-                var right = selectables.get(1);
-                $(left).after(createButtons(settings));
-                $(".right", ".pickList").click(function () {
-                    var elements = $(".ui-selected", left).detach().appendTo(right);
+                var picklist = $(this);
+                if (picklist.hasClass("pickList")) {
+                    picklist.addClass("pickList")
+                }
+                $("ol", picklist).selectable();
+                var lists = $("ol", picklist);
+                var listLeft = lists.get(0);
+                var listRight = lists.get(1);
+                $(listLeft).after(createButtons(settings));
+                $(".buttons .right", picklist).click(function () {
+                    var elements = $(".ui-selected", listLeft).detach().appendTo(listRight);
                 });
-                $(".left", ".pickList").click(function () {
-                    var elements = $(".ui-selected", right).detach().appendTo(left);
+                $(".buttons .left", picklist).click(function () {
+                    var elements = $(".ui-selected", listRight).detach().appendTo(listLeft);
                 });
             })
         }
@@ -25,17 +29,22 @@
     };
 
     var createButtons = function( settings ) {
-        var container = $("<ol />", {
+        var container = $("<ul />", {
             class: "buttons"
         });
-        container.append("<li />").append($("<button />", {
+
+        var itemLeft = $("<li />").appendTo(container);
+        var buttonLeft = $("<button />", {
             class: "left",
             html: settings.leftButtonText
-        }).button());
-        container.append("<li />").append($("<button />", {
+        }).button().appendTo(itemLeft);
+        
+        var itemRight = $("<li />").appendTo(container);
+        var buttonRight = $("<button />", {
             class: "right",
             html: settings.rightButtonText
-        }).button());
+        }).button().appendTo(itemRight);
+        
         return container;
     }
 
