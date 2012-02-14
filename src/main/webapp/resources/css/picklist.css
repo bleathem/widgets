@@ -33,5 +33,9 @@
     float: left;
 }
 
+.pickList .handle {
+    cursor : move;
+}
+
 li {  }
 
