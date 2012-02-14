@@ -11,7 +11,6 @@
                 var picklist = $(this);
                 picklist.hasClass("pickList") || picklist.addClass("pickList");
                 var lists = picklist.children("ol");
-                var selected = $([]), offset = {top:0, left:0};
                 lists.sortable({connectWith:lists, handle:".handle"});
                 lists.selectable().children("li").prepend("<div class='handle'><span class='ui-icon ui-icon-carat-2-n-s'></span></div>");
                 createButtons(picklist, lists, settings);
