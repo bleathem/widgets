@@ -7,6 +7,20 @@
     padding: 0.4em;
     font-size: 1.4em;
     height: 18px;
+
+    background: white;
+    position: relative;
+    list-style: none;
+    padding-left: 42px;
+}
+
+.pickList ol li .handle {
+    background: #f8f8f8;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 8px;
 }
 
 .pickList ol, .pickList ul {
@@ -18,3 +32,6 @@
 .pickList > * {
     float: left;
 }
+
+li {  }
+
